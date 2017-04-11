@@ -35,7 +35,6 @@ RUN \
     dirmngr="${DIRMNGR_VERSION}" \
     ca-certificates="${CA_CERTIFICATES_VERSION}" \
     wget="${WGET_VERSION}" && \
-  rm -rf /var/lib/apt/lists/* && \
   dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" && \
   wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch" && \
   wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc" && \
@@ -70,7 +69,8 @@ RUN \
   rm apache-tomcat-*.tar.gz && \
   mv apache-tomcat-"${TOMCAT_MINOR_VERSION}" /opt/apache-tomcat && \
   chown -R tomcat:tomcat /opt/apache-tomcat/ && \
-  apt-get purge -y --auto-remove wget ca-certificates
+  apt-get purge -y --auto-remove wget ca-certificates && \
+  rm -rf /var/lib/apt/lists/*
 
 # add tomcat config
 COPY conf/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
