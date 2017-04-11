@@ -52,7 +52,7 @@ WORKDIR /opt
 
 # install java
 RUN \
-  wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+  wget --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
     http://download.oracle.com/otn-pub/java/jdk/8u101-b13/"${JRE_SHORT_VERSION}"-linux-x64.tar.gz && \
   tar -zxf "${JRE_SHORT_VERSION}"-linux-x64.tar.gz -C /opt/jre && \
   update-alternatives --install /usr/bin/java java /opt/jre/"${JRE_VERSION}"/bin/java 100 && \
