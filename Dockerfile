@@ -68,7 +68,7 @@ RUN \
   tar zxf apache-tomcat-*.tar.gz && \
   rm apache-tomcat-*.tar.gz && \
   mv apache-tomcat-"${TOMCAT_MINOR_VERSION}" /opt/apache-tomcat && \
-  chown -R tomcat:tomcat /opt/apache-tomcat/ && \
+  chown -R ${TOMCAT_USER}":${TOMCAT_USER}" /opt/apache-tomcat/ && \
   apt-get purge -y --auto-remove wget ca-certificates && \
   rm -rf /var/lib/apt/lists/*
 
@@ -77,7 +77,7 @@ COPY conf/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
 COPY docker-entrypoint.sh /
 
 RUN \
-  chown tomcat:tomcat /docker-entrypoint.sh && \
+  chown ${TOMCAT_USER}":${TOMCAT_USER}" /docker-entrypoint.sh && \
   chmod 755 /docker-entrypoint.sh
 
 EXPOSE 8080
