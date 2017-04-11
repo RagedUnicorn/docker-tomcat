@@ -8,8 +8,8 @@ This container is intended to build a base for providing a tomcat instance to ho
 
 The container can be easily started with `docker-compose` command.
 
-Note that the container itself won't be very useful by itself. The default port `3306` is only
-exposed to linked containers. Meaning a connection with a client to the database is not possible with the default configuration.
+By default tomcat will be reachable on `127.0.0.1:8080`
+
 
 ```
 docker-compose up -d
@@ -66,8 +66,18 @@ The tomcat configuration is located in `conf` and can be easily changed
 The default user is:
 `admin:admin`
 
-When the container starts up it will announce the port of the tomcat server but you can additionaly find it out with the help of docker.  
-`docker port tomcat`
+To change this you can edit `conf/tomcat-users.xml`.
+
+## Development
+
+To debug the container and get more insight into the container use the `docker-compose-dev.yml`
+configuration.
+
+```
+docker-compose -f docker-compose-dev.yml up -d
+```
+
+By default the launchscript `/docker-entrypoint.sh` will not be used to start the Tomcat process. Instead the container will be setup to keep `stdin_open` open and allocating a pseudo `tty`. This allows for connecting to a shell and work on the container. Tomcat itself can be started with `./docker-entrypoint.sh`.
 
 ## License:
 
