@@ -6,5 +6,5 @@ services:
     ports:
       - "8080:8080"
     labels:
-      ch.dailylife.tomcat.environment: "prod"
-      ch.dailylife.tomcat.description: "Apache tomcat"
+      com.ragedunicorn.tomcat.environment: "prod"
+      com.ragedunicorn.tomcat.description: "Apache tomcat"

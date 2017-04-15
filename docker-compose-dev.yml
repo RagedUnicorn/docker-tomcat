@@ -12,5 +12,5 @@ services:
     tty: true
     entrypoint: /bin/bash
     labels:
-      ch.dailylife.tomcat.environment: "dev"
-      ch.dailylife.tomcat.description: "Apache tomcat"
+      com.ragedunicorn.tomcat.environment: "dev"
+      com.ragedunicorn.tomcat.description: "Apache tomcat"
