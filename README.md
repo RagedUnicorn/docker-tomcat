@@ -2,7 +2,7 @@
 
 > A docker base to build a container for Tomcat based on Ubuntu
 
-This container is intended to build a base for providing a tomcat instance to host java applications.
+This container is intended to build a base for providing a tomcat instance to host java applications. It depends on the baseimage `com.ragedunicorn/java:1.0-stable` from [RagedUnicorn/docker-java](https://github.com/RagedUnicorn/docker-java). Make sure to locally build this image or put it in a repository.
 
 ### Start container
 
@@ -27,9 +27,9 @@ docker-compose down
 
 In the dockery folder are some scripts that help out avoiding retyping long docker commands but are mostly intended for playing around with the container.
 
-#### Build Image
+#### Build image
 
-The build script builds a container with a defined name
+The build script builds an image with a defined name
 
 ```
 sh dockery/dbuild.sh
