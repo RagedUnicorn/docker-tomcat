@@ -1,4 +1,4 @@
-FROM com.ragedunicorn/java:1.0-release
+FROM com.ragedunicorn/java:1.0-stable
 
 LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gmail.com>" \
   com.ragedunicorn.version="1.0"
