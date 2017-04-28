@@ -16,7 +16,7 @@ DOCKER_TOMCAT_NAME="tomcat"
 SCRIPTPATH="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 cd "${SCRIPTPATH}"
 
-echo "$(date) [INFO]: Building container: ${DOCKER_TOMCAT_NAME}"
+echo "$(date) [INFO]: Building container: ${DOCKER_TOMCAT_NAME} - ${DOCKER_TOMCAT_TAG}"
 
 # build java container
 docker build -t "${DOCKER_TOMCAT_TAG}" ../

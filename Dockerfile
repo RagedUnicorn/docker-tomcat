@@ -1,4 +1,4 @@
-FROM ubuntu:zesty
+FROM com.ragedunicorn/java:1.0-release
 
 LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gmail.com>" \
   com.ragedunicorn.version="1.0"
@@ -11,17 +11,13 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 
 # software versions
 ENV \
-  JRE_VERSION=jre1.8.0_101 \
-  JRE_SHORT_VERSION=jre-8u101 \
   TOMCAT_MAJOR_VERSION=8 \
   TOMCAT_MINOR_VERSION=8.0.43 \
   CA_CERTIFICATES_VERSION=20161130 \
   DIRMNGR_VERSION=2.1.15-1ubuntu7 \
-  WGET_VERSION=1.18-2ubuntu1 \
   GOSU_VERSION=1.10
 
 ENV \
-  JRE_HOME=/opt/jre/"${JRE_VERSION}" \
   TOMCAT_USER=tomcat \
   CATALINA_HOME=/opt/apache-tomcat
 
@@ -33,8 +29,7 @@ RUN \
   set -x && \
   apt-get update && apt-get install -y --no-install-recommends \
     dirmngr="${DIRMNGR_VERSION}" \
-    ca-certificates="${CA_CERTIFICATES_VERSION}" \
-    wget="${WGET_VERSION}" && \
+    ca-certificates="${CA_CERTIFICATES_VERSION}" && \
   dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" && \
   wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch" && \
   wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc" && \
@@ -46,17 +41,6 @@ RUN \
   chmod +x /usr/local/bin/gosu && \
   gosu nobody true && \
   rm -rf /var/lib/apt/lists/*
-
-RUN mkdir /opt/jre
-WORKDIR /opt
-
-# install java
-RUN \
-  wget --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-    http://download.oracle.com/otn-pub/java/jdk/8u101-b13/"${JRE_SHORT_VERSION}"-linux-x64.tar.gz && \
-  tar -zxf "${JRE_SHORT_VERSION}"-linux-x64.tar.gz -C /opt/jre && \
-  update-alternatives --install /usr/bin/java java /opt/jre/"${JRE_VERSION}"/bin/java 100 && \
-  rm "${JRE_SHORT_VERSION}"-linux-x64.tar.gz
 
 WORKDIR /home
 
