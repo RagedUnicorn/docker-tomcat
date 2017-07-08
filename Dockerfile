@@ -43,10 +43,14 @@ RUN \
 
 # add tomcat config
 COPY conf/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
+COPY conf/tomcat-users-template.xml /opt/apache-tomcat/conf/tomcat-users-template.xml
+
 COPY docker-entrypoint.sh /
 
 RUN \
-  chown "${TOMCAT_USER}":"${TOMCAT_USER}" /docker-entrypoint.sh && \
+  chown "${TOMCAT_USER}":"${TOMCAT_USER}" /opt/apache-tomcat/conf/tomcat-users.xml; \
+  chown "${TOMCAT_USER}":"${TOMCAT_USER}" /opt/apache-tomcat/conf/tomcat-users-template.xml; \
+  chown "${TOMCAT_USER}":"${TOMCAT_USER}" /docker-entrypoint.sh; \
   chmod 755 /docker-entrypoint.sh
 
 EXPOSE 8080

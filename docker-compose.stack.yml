@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  tomcat:
+    image: com.ragedunicorn/tomcat:1.0-stable
+    secrets:
+      - com.ragedunicorn.tomcat.app_user
+      - com.ragedunicorn.tomcat.app_user_password
+    ports:
+      - "8080:8080"
+      - "60333:60333"
+    labels:
+      com.ragedunicorn.tomcat.environment: "prod"
+      com.ragedunicorn.tomcat.description: "Apache tomcat"
+secrets:
+  com.ragedunicorn.tomcat.app_user:
+    external: true
+  com.ragedunicorn.tomcat.app_user_password:
+    external: true

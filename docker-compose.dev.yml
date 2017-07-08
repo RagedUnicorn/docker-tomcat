@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 services:
   tomcat:
     build: .
@@ -10,7 +10,7 @@ services:
       - CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=60333,server=y,suspend=n"
     stdin_open: true
     tty: true
-    entrypoint: /bin/bash
+    entrypoint: /bin/sh
     labels:
       com.ragedunicorn.tomcat.environment: "dev"
       com.ragedunicorn.tomcat.description: "Apache tomcat"
