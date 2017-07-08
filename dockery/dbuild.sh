@@ -9,7 +9,7 @@ set -x
 WD="${PWD}"
 
 # variable setup
-DOCKER_TOMCAT_TAG="com.ragedunicorn/tomcat"
+DOCKER_TOMCAT_TAG="ragedunicorn/tomcat"
 DOCKER_TOMCAT_NAME="tomcat"
 
 # get absolute path to script and change context to script folder

@@ -8,7 +8,7 @@ set -o nounset
 WD="${PWD}"
 
 # variable setup
-DOCKER_TOMCAT_TAG="com.ragedunicorn/tomcat"
+DOCKER_TOMCAT_TAG="ragedunicorn/tomcat"
 DOCKER_TOMCAT_NAME="tomcat"
 DOCKER_TOMCAT_ID=0
 

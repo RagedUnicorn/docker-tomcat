@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   tomcat:
-    image: com.ragedunicorn/tomcat:1.0-stable
+    image: ragedunicorn/tomcat:1.0-stable
     secrets:
       - com.ragedunicorn.tomcat.app_user
       - com.ragedunicorn.tomcat.app_user_password
