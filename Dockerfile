@@ -18,10 +18,11 @@ ENV \
 
 ENV \
   TOMCAT_USER=tomcat \
+  TOMCAT_GROUP=tomcat \
   CATALINA_HOME=/opt/apache-tomcat
 
 # explicitly set user/group IDs
-RUN addgroup -S "${TOMCAT_USER}" -g 9999 && adduser -S -G "${TOMCAT_USER}" -u 9999 "${TOMCAT_USER}"
+RUN addgroup -S "${TOMCAT_GROUP}" -g 9999 && adduser -S -G "${TOMCAT_GROUP}" -u 9999 "${TOMCAT_USER}"
 
 RUN \
   set -ex; \
@@ -39,7 +40,7 @@ RUN \
   mkdir -p /opt/apache-tomcat; \
   mv apache-tomcat-"${TOMCAT_MINOR_VERSION}"/* /opt/apache-tomcat/; \
   rm -r apache-tomcat-"${TOMCAT_MINOR_VERSION}"; \
-  chown -R "${TOMCAT_USER}":"${TOMCAT_USER}" /opt/apache-tomcat/
+  chown -R "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/
 
 # add tomcat config
 COPY conf/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
@@ -48,8 +49,8 @@ COPY conf/tomcat-users-template.xml /opt/apache-tomcat/conf/tomcat-users-templat
 COPY docker-entrypoint.sh /
 
 RUN \
-  chown "${TOMCAT_USER}":"${TOMCAT_USER}" /opt/apache-tomcat/conf/tomcat-users.xml; \
-  chown "${TOMCAT_USER}":"${TOMCAT_USER}" /opt/apache-tomcat/conf/tomcat-users-template.xml; \
+  chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users.xml; \
+  chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users-template.xml; \
   chmod 755 /docker-entrypoint.sh
 
 EXPOSE 8080
