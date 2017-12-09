@@ -111,6 +111,8 @@ docker-compose -f docker-compose.dev.yml up -d
 
 By default the launchscript `/docker-entrypoint.sh` will not be used to start the Tomcat process. Instead the container will be setup to keep `stdin_open` open and allocating a pseudo `tty`. This allows for connecting to a shell and work on the container. A shell can be opened inside the container with `docker attach [container-id]`. Tomcat itself can be started with `./docker-entrypoint.sh`.
 
+The tomcat server also exposes jmx access on port `60334` when built with the developer configuration. To connect to the server use a tool like jconsole and its url `127.0.0.1:60334`
+
 ## Links
 
 Alpine packages database
