@@ -12,7 +12,7 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 ENV \
   TOMCAT_MAJOR_VERSION=8 \
   TOMCAT_MINOR_VERSION=8.0.43 \
-  WGET_VERSION=1.19.1-r2 \
+  WGET_VERSION=1.19.2-r1 \
   SU_EXEC_VERSION=0.2-r0
 
 ENV \
