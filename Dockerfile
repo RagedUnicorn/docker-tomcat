@@ -30,6 +30,7 @@ RUN \
 WORKDIR /home
 
 RUN \
+  set -ex; \
   apk add --no-cache \
     wget="${WGET_VERSION}"; \
   wget -q https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz; \
