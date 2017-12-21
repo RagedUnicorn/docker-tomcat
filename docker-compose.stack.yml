@@ -8,6 +8,11 @@ services:
     ports:
       - "8080:8080"
       - "60333:60333"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8080"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
     labels:
       com.ragedunicorn.tomcat.environment: "prod"
       com.ragedunicorn.tomcat.description: "Apache tomcat"
