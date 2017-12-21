@@ -2,7 +2,7 @@ version: '3.4'
 services:
   tomcat:
     build: .
-    image: ragedunicorn/tomcat:1.0.1-stable
+    image: ragedunicorn/tomcat:1.0.2-stable
     ports:
       - "8080:8080"
     healthcheck:
