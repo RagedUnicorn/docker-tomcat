@@ -124,7 +124,7 @@ Alpine packages database
 
 ## License
 
-Copyright (c) 2017 Michael Wiesendanger
+Copyright (C) 2018 Michael Wiesendanger
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
