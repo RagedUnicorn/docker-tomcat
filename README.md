@@ -1,10 +1,16 @@
 # docker-tomcat
 
-> A docker base to build a container for Tomcat based on Alpine
+> A docker base image to build a container for Tomcat based on Alpine
 
-This container is intended to build a base for providing a tomcat instance to host java applications. It depends on the baseimage `ragedunicorn/java:1.0.1-stable` from [RagedUnicorn/docker-java](https://github.com/RagedUnicorn/docker-java). Make sure to locally build this image or put it in a repository.
+This image is intended to build a base for providing a tomcat instance to host java applications. It depends on the baseimage `ragedunicorn/java:1.0.1-stable` from [RagedUnicorn/docker-java](https://github.com/RagedUnicorn/docker-java). Make sure to locally build this image or put it in a repository.
 
-### Using the image
+## Version
+
+* Tomcat 8
+
+For an exact version see `Dockerfile`
+
+## Using the image
 
 #### Start container
 
