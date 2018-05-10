@@ -11,7 +11,7 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 # software versions
 ENV \
   TOMCAT_MAJOR_VERSION=8 \
-  TOMCAT_MINOR_VERSION=8.0.43 \
+  TOMCAT_MINOR_VERSION=8.5.31 \
   WGET_VERSION=1.19.2-r1 \
   SU_EXEC_VERSION=0.2-r0
 
@@ -34,7 +34,7 @@ RUN \
   apk add --no-cache \
     wget="${WGET_VERSION}"; \
   wget -q https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz; \
-  wget -qO- https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz.md5 | md5sum -c -; \
+  wget -qO- https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz.sha512 | sha512sum -c -; \
   tar zxf apache-tomcat-*.tar.gz; \
   rm apache-tomcat-*.tar.gz; \
   mkdir -p /opt/apache-tomcat; \
