@@ -2,7 +2,7 @@ version: '3.4'
 services:
   tomcat:
     build: .
-    image: ragedunicorn/tomcat:1.0.2-dev
+    image: ragedunicorn/tomcat:1.0.3-dev
     ports:
       - "8080:8080"
       - "60333:60333"
