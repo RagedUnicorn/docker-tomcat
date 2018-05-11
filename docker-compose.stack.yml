@@ -7,7 +7,6 @@ services:
       - com.ragedunicorn.tomcat.app_user_password
     ports:
       - "8080:8080"
-      - "60333:60333"
     healthcheck:
       test: ["CMD", "nc", "-z", "localhost", "8080"]
       interval: 1m
