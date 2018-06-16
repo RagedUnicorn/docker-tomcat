@@ -1,0 +1,26 @@
+schemaVersion: 2.0.0
+
+fileExistenceTests:
+- name: 'tomcat_users_configuration'
+  path: '/opt/apache-tomcat/conf/tomcat-users.xml'
+  shouldExist: true
+  permissions: '-rwxr-xr-x'
+- name: 'tomcat_users_configuration_template'
+  path: '/opt/apache-tomcat/conf/tomcat-users-template.xml'
+  shouldExist: true
+  permissions: '-rwxr-xr-x'
+- name: 'catalina_home'
+  path: '/opt/apache-tomcat'
+  shouldExist: true
+  permissions: 'drwxr-xr-x'
+- name: 'catalina_execute'
+  path: '/opt/apache-tomcat/bin/catalina.sh'
+  shouldExist: true
+  permissions: '-rwxr-x---'
+- name: 'docker_entrypoint'
+  path: '/docker-entrypoint.sh'
+  shouldExist: true
+  permissions: '-rwxr-xr-x'
+- name: 'apache_tomcat_distribution'
+  path: '/home/apache-tomcat-8.5.31.tar.gz'
+  shouldExist: false

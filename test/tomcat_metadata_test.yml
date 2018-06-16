@@ -1,0 +1,15 @@
+schemaVersion: 2.0.0
+
+metadataTest:
+  env:
+    - key: 'TOMCAT_USER'
+      value: 'tomcat'
+    - key: 'TOMCAT_GROUP'
+      value: 'tomcat'
+    - key: 'CATALINA_HOME'
+      value: '/opt/apache-tomcat'
+  labels:
+    - key: 'com.ragedunicorn.maintainer'
+      value: 'Michael Wiesendanger <michael.wiesendanger@gmail.com>'
+  exposedPorts: ["8080"]
+  entrypoint: ["/docker-entrypoint.sh"]
