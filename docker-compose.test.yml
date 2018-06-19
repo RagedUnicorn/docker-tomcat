@@ -5,7 +5,7 @@ services:
     volumes:
         - ./test/:/test
         - /var/run/docker.sock:/var/run/docker.sock
-    command: ["--image", "ragedunicorn/tomcat:1.0.3-stable", "--config", "/test/tomcat_test.yml", "--pull"]
+    command: ["--image", "ragedunicorn/tomcat:1.0.3-stable", "--config", "/test/tomcat_test.yml"]
     labels:
       com.ragedunicorn.container-test.environment: "test"
       com.ragedunicorn.container-test.description: "Google Container Structure Test"
@@ -14,7 +14,7 @@ services:
     volumes:
         - ./test/:/test
         - /var/run/docker.sock:/var/run/docker.sock
-    command: ["--image", "ragedunicorn/tomcat:1.0.3-stable", "--config", "/test/tomcat_metadata_test.yml", "--pull"]
+    command: ["--image", "ragedunicorn/tomcat:1.0.3-stable", "--config", "/test/tomcat_metadata_test.yml"]
     labels:
       com.ragedunicorn.container-test.environment: "test"
       com.ragedunicorn.container-test.description: "Google Container Structure Test"
@@ -23,7 +23,7 @@ services:
     volumes:
         - ./test/:/test
         - /var/run/docker.sock:/var/run/docker.sock
-    command: ["--image", "ragedunicorn/tomcat:1.0.3-stable", "--config", "/test/tomcat_command_test.yml", "--pull"]
+    command: ["--image", "ragedunicorn/tomcat:1.0.3-stable", "--config", "/test/tomcat_command_test.yml"]
     labels:
       com.ragedunicorn.container-test.environment: "test"
       com.ragedunicorn.container-test.description: "Google Container Structure Test"
@@ -32,7 +32,7 @@ services:
     volumes:
         - ./test/:/test
         - /var/run/docker.sock:/var/run/docker.sock
-    command: ["--image", "ragedunicorn/tomcat:1.0.3-dev", "--config", "/test/tomcat_test.yml", "--pull"]
+    command: ["--image", "ragedunicorn/tomcat:1.0.3-dev", "--config", "/test/tomcat_test.yml"]
     labels:
       com.ragedunicorn.container-test.environment: "test"
       com.ragedunicorn.container-test.description: "Google Container Structure Test"
@@ -41,7 +41,7 @@ services:
     volumes:
         - ./test/:/test
         - /var/run/docker.sock:/var/run/docker.sock
-    command: ["--image", "ragedunicorn/tomcat:1.0.3-dev", "--config", "/test/tomcat_metadata_test.yml", "--pull"]
+    command: ["--image", "ragedunicorn/tomcat:1.0.3-dev", "--config", "/test/tomcat_metadata_test.yml"]
     labels:
       com.ragedunicorn.container-test.environment: "test"
       com.ragedunicorn.container-test.description: "Google Container Structure Test"
@@ -50,7 +50,7 @@ services:
     volumes:
         - ./test/:/test
         - /var/run/docker.sock:/var/run/docker.sock
-    command: ["--image", "ragedunicorn/tomcat:1.0.3-dev", "--config", "/test/tomcat_command_test.yml", "--pull"]
+    command: ["--image", "ragedunicorn/tomcat:1.0.3-dev", "--config", "/test/tomcat_command_test.yml"]
     labels:
       com.ragedunicorn.container-test.environment: "test"
       com.ragedunicorn.container-test.description: "Google Container Structure Test"
