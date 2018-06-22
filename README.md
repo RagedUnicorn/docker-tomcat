@@ -57,11 +57,11 @@ echo "app_user_password" | docker secret create com.ragedunicorn.tomcat.app_user
 docker stack deploy --compose-file=docker-compose.stack.yml [stackname]
 ```
 
-For a production deployment a stack should be deployed. The secret will then be taken into account and tomcat will be setup accordingly. You can also set a password in `conf\tomcat-users.xml` but this is not recommended for production.
+For a production deployment a stack should be deployed. The secret will then be taken into account and Tomcat will be setup accordingly. You can also set a password in `conf\tomcat-users.xml` but this is not recommended for production.
 
 ## Dockery
 
-In the dockery folder are some scripts that help out avoiding retyping long docker commands but are mostly intended for playing around with the container. For production use docker-compose or docker stack should be used.
+In the dockery folder are some scripts that help out avoiding retyping long docker commands but are mostly intended for playing around with the container. For production docker-compose or docker stack should be used.
 
 #### Build image
 
@@ -108,7 +108,7 @@ To change this you can edit `conf/tomcat-users.xml`.
 
 ## Healthcheck
 
-The production and the stack image supports a simple healthcheck whether the container is healthy or not. This can be configured inside `docker-compose.yml` or `docker-compose.stack.yml`
+The production and the stack image supports a simple healthcheck showing whether the container is healthy or not. This can be configured inside `docker-compose.yml` or `docker-compose.stack.yml`
 
 ## Test
 
@@ -129,7 +129,7 @@ docker-compose -f docker-compose.dev.yml up -d
 
 By default the launchscript `/docker-entrypoint.sh` will not be used to start the Tomcat process. Instead the container will be setup to keep `stdin_open` open and allocating a pseudo `tty`. This allows for connecting to a shell and work on the container. A shell can be opened inside the container with `docker attach [container-id]`. Tomcat itself can be started with `./docker-entrypoint.sh`.
 
-The tomcat server also exposes jmx access on port `60334` when built with the developer configuration. To connect to the server use a tool like jconsole and its url `127.0.0.1:60334`
+The Tomcat server also exposes jmx access on port `60334` when built with the developer configuration. To connect to the server use a tool like jconsole and its url `127.0.0.1:60334`
 
 ## Links
 
