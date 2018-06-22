@@ -1,4 +1,4 @@
-FROM ragedunicorn/openjdk:1.0.1-jdk-stable
+FROM ragedunicorn/openjdk:1.0.2-jdk-stable
 
 LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gmail.com>"
 
