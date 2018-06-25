@@ -118,6 +118,28 @@ To do basic tests of the structure of the container use the `docker-compose.test
 
 For more info see [container-test](https://github.com/RagedUnicorn/docker-container-test).
 
+Tests can also be run by category such as command, fileExistence and metadata tests by starting single services in `docker-compose.test.yml`
+
+```
+# basic file existence tests
+docker-compose -f docker-compose.test.yml up container-test
+# command tests
+docker-compose -f docker-compose.test.yml up container-test-command
+# metadata tests
+docker-compose -f docker-compose.test.yml up container-test-metadata
+```
+
+The same tests are also available for the development image.
+
+```
+# basic file existence tests
+docker-compose -f docker-compose.test.yml up container-dev-test
+# command tests
+docker-compose -f docker-compose.test.yml up container-dev-test-command
+# metadata tests
+docker-compose -f docker-compose.test.yml up container-dev-test-metadata
+```
+
 ## Development
 
 To debug the container and get more insight into the container use the `docker-compose.dev.yml`
