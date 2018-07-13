@@ -3,7 +3,7 @@
 # @description stop script for docker-tomcat container
 
 # abort when trying to use unset variable
-set -o nounset
+set -euo pipefail
 
 WD="${PWD}"
 
