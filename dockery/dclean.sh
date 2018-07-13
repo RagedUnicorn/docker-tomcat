@@ -3,7 +3,6 @@
 # @description cleanup script for docker-tomcat container.
 # Does not delete other containers that where built from the dockerfile
 
-# abort when trying to use unset variable
 set -euo pipefail
 
 WD="${PWD}"
