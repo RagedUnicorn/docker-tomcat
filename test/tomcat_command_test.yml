@@ -1,6 +1,11 @@
 schemaVersion: 2.0.0
 
 commandTests:
+- name: 'which_su_exec'
+  command: "which"
+  args: ["su-exec"]
+  expectedOutput: ["sbin/su-exec"]
+  exitCode: 0
 - name: 'tomcat_version'
   command: "/opt/apache-tomcat/bin/version.sh"
   expectedOutput: [
