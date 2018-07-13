@@ -2,8 +2,7 @@
 # @author Michael Wiesendanger <michael.wiesendanger@gmail.com>
 # @description launch script for tomcat
 
-# abort when trying to use unset variable
-set -o nounset
+set -euo pipefail
 
 tomcat_home="/home/tomcat"
 tomcat_template_user_config="/opt/apache-tomcat/conf/tomcat-users-template.xml"
