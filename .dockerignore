@@ -13,7 +13,8 @@ docker-compose.yml
 docker-compose.dev.yml
 docker-compose.stack.yml
 docker-compose.test.yml
+.env
 
 # misc
-dockery/*
-test/*
+dockery/
+test/
