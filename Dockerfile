@@ -40,8 +40,8 @@ RUN \
   chown -R "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/
 
 # add tomcat config
-COPY conf/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
-COPY conf/tomcat-users-template.xml /opt/apache-tomcat/conf/tomcat-users-template.xml
+COPY config/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
+COPY config/tomcat-users-template.xml /opt/apache-tomcat/conf/tomcat-users-template.xml
 
 COPY docker-entrypoint.sh /
 

@@ -97,12 +97,12 @@ sh dockery/dstop.sh
 
 ## Configuration
 
-The Tomcat configuration is located in `conf` and can be easily changed.
+The Tomcat configuration is located in `config` and can be easily changed.
 
 The default user is:
 `admin:admin`
 
-To change this you can edit `conf/tomcat-users.xml`.
+To change this you can edit `config/tomcat-users.xml`.
 
 **Note:** This does not apply to a stack deployment. Make sure to set both password and user with docker secrets.
 
