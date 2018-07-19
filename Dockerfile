@@ -8,6 +8,10 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 #  / / / /_/ / / / / / / /__/ /_/ / /_
 # /_/  \____/_/ /_/ /_/\___/\__,_/\__/
 
+# image args
+ARG TOMCAT_USER=tomcat
+ARG TOMCAT_GROUP=tomcat
+
 # software versions
 ENV \
   TOMCAT_MAJOR_VERSION=8 \
@@ -15,8 +19,8 @@ ENV \
   SU_EXEC_VERSION=0.2-r0
 
 ENV \
-  TOMCAT_USER=tomcat \
-  TOMCAT_GROUP=tomcat \
+  TOMCAT_USER="${TOMCAT_USER}" \
+  TOMCAT_GROUP="${TOMCAT_GROUP}" \
   CATALINA_HOME=/opt/apache-tomcat
 
 # explicitly set user/group IDs
