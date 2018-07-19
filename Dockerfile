@@ -47,12 +47,17 @@ RUN \
 COPY config/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
 COPY config/tomcat-users-template.xml /opt/apache-tomcat/conf/tomcat-users-template.xml
 
+# add healthcheck script
+COPY docker-healthcheck.sh /
+
+# add launch script
 COPY docker-entrypoint.sh /
 
 RUN \
   chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users.xml; \
   chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users-template.xml; \
-  chmod 755 /docker-entrypoint.sh
+  chmod 755 /docker-entrypoint.sh && \
+  chmod 755 /docker-healthcheck.sh
 
 EXPOSE 8080
 

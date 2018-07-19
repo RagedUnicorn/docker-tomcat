@@ -8,7 +8,7 @@ services:
     ports:
       - "8080:8080"
     healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "8080"]
+      test: ["CMD", "/docker-healthcheck.sh"]
       interval: 1m
       timeout: 10s
       retries: 3
