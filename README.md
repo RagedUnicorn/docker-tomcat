@@ -97,6 +97,8 @@ sh dockery/dstop.sh
 
 ## Configuration
 
+#### Default user
+
 The Tomcat configuration is located in `config` and can be easily changed.
 
 The default user is:
@@ -105,6 +107,14 @@ The default user is:
 To change this you can edit `config/tomcat-users.xml`.
 
 **Note:** This does not apply to a stack deployment. Make sure to set both password and user with docker secrets.
+
+#### Build Args
+
+The image allows for certain arguments being overridden by build args.
+
+`TOMCAT_USER, TOMCAT_GROUP`
+
+They all have a default value and don't have to be overridden. For details see the Dockerfile.
 
 ## Healthcheck
 
