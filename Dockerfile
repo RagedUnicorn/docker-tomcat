@@ -34,8 +34,14 @@ WORKDIR /home
 
 RUN \
   set -ex; \
-  wget -q https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz; \
-  wget -qO - https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz.sha512 | sha512sum -c -; \
+  if ! wget -q https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz; then \
+    echo >&2 "Error: Failed to download Tomcat binary"; \
+    exit 1; \
+  fi && \
+  if ! wget -qO - https://archive.apache.org/dist/tomcat/tomcat-"${TOMCAT_MAJOR_VERSION}"/v"${TOMCAT_MINOR_VERSION}"/bin/apache-tomcat-"${TOMCAT_MINOR_VERSION}".tar.gz.sha512 | sha512sum -c -; then \
+    echo >&2 "Error: Failed to verify Tomcat signature"; \
+    exit 1; \
+  fi && \
   tar zxf apache-tomcat-*.tar.gz; \
   rm apache-tomcat-*.tar.gz; \
   mkdir -p /opt/apache-tomcat; \
