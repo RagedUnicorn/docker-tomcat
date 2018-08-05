@@ -42,11 +42,11 @@ RUN \
     echo >&2 "Error: Failed to verify Tomcat signature"; \
     exit 1; \
   fi && \
-  tar zxf apache-tomcat-*.tar.gz; \
-  rm apache-tomcat-*.tar.gz; \
-  mkdir -p /opt/apache-tomcat; \
-  mv apache-tomcat-"${TOMCAT_MINOR_VERSION}"/* /opt/apache-tomcat/; \
-  rm -r apache-tomcat-"${TOMCAT_MINOR_VERSION}"; \
+  tar zxf apache-tomcat-*.tar.gz && \
+  rm apache-tomcat-*.tar.gz && \
+  mkdir -p /opt/apache-tomcat && \
+  mv apache-tomcat-"${TOMCAT_MINOR_VERSION}"/* /opt/apache-tomcat/ && \
+  rm -r apache-tomcat-"${TOMCAT_MINOR_VERSION}" && \
   chown -R "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/
 
 # add tomcat config
@@ -60,8 +60,8 @@ COPY docker-healthcheck.sh /
 COPY docker-entrypoint.sh /
 
 RUN \
-  chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users.xml; \
-  chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users-template.xml; \
+  chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users.xml && \
+  chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users-template.xml && \
   chmod 755 /docker-entrypoint.sh && \
   chmod 755 /docker-healthcheck.sh
 
