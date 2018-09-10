@@ -52,6 +52,8 @@ RUN \
 # add tomcat config
 COPY config/tomcat-users.xml /opt/apache-tomcat/conf/tomcat-users.xml
 COPY config/tomcat-users-template.xml /opt/apache-tomcat/conf/tomcat-users-template.xml
+# overwrite manager context
+COPY config/context.xml /opt/apache-tomcat/webapps/manager/META-INF/context.xml
 
 # add healthcheck script
 COPY docker-healthcheck.sh /
@@ -62,6 +64,7 @@ COPY docker-entrypoint.sh /
 RUN \
   chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users.xml && \
   chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/conf/tomcat-users-template.xml && \
+  chown "${TOMCAT_USER}":"${TOMCAT_GROUP}" /opt/apache-tomcat/webapps/manager/META-INF/context.xml && \
   chmod 755 /docker-entrypoint.sh && \
   chmod 755 /docker-healthcheck.sh
 
