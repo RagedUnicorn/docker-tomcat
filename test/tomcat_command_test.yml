@@ -9,9 +9,9 @@ commandTests:
 - name: 'tomcat_version'
   command: "/opt/apache-tomcat/bin/version.sh"
   expectedOutput: [
-    "Server version: Apache Tomcat/8.5.31",
-    "Server number:  8.5.31.0",
-    "JVM Version:    1.8.0_171-b11"
+    "Server version: Apache Tomcat/8.5.38",
+    "Server number:  8.5.38.0",
+    "JVM Version:    1.8.0_201-b08"
   ]
   exitCode: 0
 - name: 'tomcat_env'
