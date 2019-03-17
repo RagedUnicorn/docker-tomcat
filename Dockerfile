@@ -16,6 +16,8 @@ ARG TOMCAT_GROUP=tomcat
 ENV \
   TOMCAT_MAJOR_VERSION=8 \
   TOMCAT_MINOR_VERSION=8.5.38 \
+  TOMCAT_NATIVE_VERSION=1.2.19-r0 \
+  NSS_VERSION=3.41-r0 \
   SU_EXEC_VERSION=0.2-r0
 
 ENV \
@@ -28,7 +30,10 @@ RUN addgroup -S "${TOMCAT_GROUP}" -g 9999 && adduser -S -G "${TOMCAT_GROUP}" -u 
 
 RUN \
   set -ex; \
-  apk add --no-cache su-exec="${SU_EXEC_VERSION}"
+  apk add --no-cache \
+    su-exec="${SU_EXEC_VERSION}" \
+    tomcat-native="${TOMCAT_NATIVE_VERSION}" \
+    nss="${NSS_VERSION}"
 
 WORKDIR /home
 
