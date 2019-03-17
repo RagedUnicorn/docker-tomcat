@@ -2,7 +2,7 @@
 
 > A docker base image to build a container for Tomcat based on Alpine
 
-This image is intended to build a base for providing a tomcat instance to host java applications. It depends on the baseimage `ragedunicorn/java:1.0.1-stable` from [RagedUnicorn/docker-java](https://github.com/RagedUnicorn/docker-java). Make sure to locally build this image or put it in a repository.
+This image is intended to build a base for providing a tomcat instance to host java applications. It depends on the baseimage `ragedunicorn/openjdk:1.2.0-jdk-stable` from [RagedUnicorn/docker-java](https://github.com/RagedUnicorn/docker-java). Make sure to locally build this image or put it in a repository.
 
 ## Version
 
