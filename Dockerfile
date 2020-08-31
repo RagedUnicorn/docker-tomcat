@@ -1,4 +1,4 @@
-FROM ragedunicorn/openjdk:1.2.0-jdk-stable
+FROM ragedunicorn/openjdk:1.3.0-jdk-stable
 
 LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gmail.com>"
 
@@ -14,11 +14,11 @@ ARG TOMCAT_GROUP=tomcat
 
 # software versions
 ENV \
-  TOMCAT_MAJOR_VERSION=8 \
-  TOMCAT_MINOR_VERSION=8.5.38 \
-  TOMCAT_NATIVE_VERSION=1.2.19-r0 \
-  NSS_VERSION=3.41-r0 \
-  SU_EXEC_VERSION=0.2-r0
+  TOMCAT_MAJOR_VERSION=9 \
+  TOMCAT_MINOR_VERSION=9.0.37 \
+  TOMCAT_NATIVE_VERSION=1.2.24-r0 \
+  NSS_VERSION=3.55-r0 \
+  SU_EXEC_VERSION=0.2-r1
 
 ENV \
   TOMCAT_USER="${TOMCAT_USER}" \
