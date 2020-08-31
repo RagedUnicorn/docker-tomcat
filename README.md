@@ -170,7 +170,7 @@ Alpine packages database
 
 ## License
 
-Copyright (C) 2019 Michael Wiesendanger
+Copyright (C) 2020 Michael Wiesendanger
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
