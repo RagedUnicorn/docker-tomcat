@@ -8,7 +8,7 @@ services:
       - "60333:60333"
       - "60334:60334"
     environment:
-      - CATALINA_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=60334 -Dcom.sun.management.jmxremote.rmi.port=60334 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=127.0.0.1 -agentlib:jdwp=transport=dt_socket,address=60333,server=y,suspend=n
+      - CATALINA_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=60334 -Dcom.sun.management.jmxremote.rmi.port=60334 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=127.0.0.1 -agentlib:jdwp=transport=dt_socket,address=address=*:60333,server=y,suspend=n
     stdin_open: true
     tty: true
     entrypoint: /bin/sh
