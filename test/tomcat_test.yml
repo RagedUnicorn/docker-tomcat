@@ -26,5 +26,5 @@ fileExistenceTests:
   shouldExist: true
   permissions: '-rwxr-xr-x'
 - name: 'apache_tomcat_distribution'
-  path: '/home/apache-tomcat-8.5.31.tar.gz'
+  path: '/home/apache-tomcat-9.0.37.tar.gz'
   shouldExist: false
